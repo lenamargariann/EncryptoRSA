@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>RSA CipherTool</title>
+    <link href="../static/css/start-style.css" rel="stylesheet" th:href="@{/css/start-style.css}">
+    <link href="../static/images/head-logo.png" rel="icon" th:href="@{/images/head-logo.svg}" type="image/svg"/>
+</head>
+
+<body>
+<div id="all">
+    <div class="username-block blur-block">
+        <div><h1>Start Secure Messaging</h1></div>
+        <label for="username"></label><input id="username" placeholder="Enter Username..." type="text">
+        <input id="submit-button" th:onclick="loadMainPage()" type="button" value="Submit">
+    </div>
+</div>
+<script th:inline="javascript">
+    const username = document.getElementById("username");
+    const submitButton = document.getElementById('submit-button');
+
+    username.addEventListener('keyup', function (event) {
+        if (event.key === 'Enter') {
+            submitButton.click();
+        }
+    });
+
+    function loadMainPage() {
+        if (username.value === '') {
+            alert("Enter username!");
+            return;
+        }
+        const postData = {
+            "username": username.value
+        };
+        $.ajax({
+            url: '/user/login',
+            method: 'POST',
+            data: postData,
+            success: function (response) {
+                if (response === true) {
+                    openMain()
+                } else {
+                    username.value = '';
+                    alert("Chosen username is busy. Choose another one.")
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.error('Error starting chatting:', errorThrown);
+            }
+        });
+
+    }
+
+    function openMain() {
+        const url = `/${username.value}`;
+        $.ajax({
+            url: url,
+            method: 'GET',
+            success: function (response) {
+                window.location.href = url;
+            },
+            error: function (xhr, status, error) {
+                console.error('Failed to fetch main page:', error);
+            }
+        });
+    }
+
+</script>
+</body>
+
+</html>

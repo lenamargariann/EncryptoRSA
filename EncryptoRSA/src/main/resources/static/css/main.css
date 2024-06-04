@@ -1,0 +1,275 @@
+body {
+    background-image: url(../images/background.jpg);
+    background-size: cover;
+}
+
+@font-face {
+    font-family: jost;
+    src: url(Jost/static/Jost-Light.ttf);
+}
+
+@font-face {
+    font-family: jost bold;
+    src: url(Jost/static/Jost-Bold.ttf);
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#all {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+
+.blur-block {
+    background: rgba(255, 255, 255, .1);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, .2);
+    border-radius: 30px;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-right: 2px solid rgba(255, 255, 255, .2);
+    border-bottom: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(5px);
+    padding: 2.4%;
+}
+
+.key-gen-block {
+    width: 38%;
+    margin: 1.5% 0 1.5% 27%;
+}
+
+.username-block {
+    margin-left: 27%;
+    width: 38%;
+}
+
+.one {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    color: white;
+    font-size: 18px;
+}
+
+.key-size {
+    background-color: #441F90;
+    padding: 4px;
+    border-radius: 8px;
+    width: 45%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: jost;
+
+}
+
+.key-size-label {
+    padding: 3% 8%;
+}
+
+.key-size-select {
+    padding: 3% 8%;
+    background-color: white;
+    font-size: 17px;
+    border-radius: 7px;
+    border: none;
+    color: #441F90;
+    font-weight: bold;
+
+}
+
+#gen-new-keys {
+    background: linear-gradient(90deg, rgba(68, 31, 144, 0.8) 1%, rgb(32, 111, 166) 100%);
+    border: none;
+    padding: 4px;
+    border-radius: 8px;
+    width: 45%;
+    font-family: jost;
+    color: white;
+    font-size: 18px;
+    box-shadow: 1px 3px rgba(30, 32, 75, 0.5);
+}
+
+#gen-new-keys:hover,
+.enc-dec-button:hover {
+    background: rgba(68, 31, 144, 0.75);
+}
+
+#gen-new-keys:active,
+.enc-dec-button:active {
+    background: linear-gradient(90deg, rgb(68, 31, 144) 1%, rgb(32, 111, 166) 100%);
+    box-shadow: 1px 2px rgba(50, 25, 101, 0.63);
+    transform: translateY(3px);
+}
+
+#key-gen-time {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #441F90;
+    font-size: 12px;
+    min-height: 12px;
+}
+
+.two {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+
+}
+
+.key-titles {
+    background: linear-gradient(90deg, #441f90 0%, #206fa6 100%);
+    border: none;
+    padding: 5px 15px;
+    border-radius: 8px;
+    width: 35%;
+    font-family: jost;
+    color: white;
+    font-size: 18px;
+    padding-bottom: 5%;
+}
+
+#download1 {
+    float: right;
+    width: 12%;
+    cursor: pointer;
+}
+
+#download2 {
+    float: left;
+    width: 12%;
+    cursor: pointer;
+}
+
+.public-key-title {
+    text-align: right;
+    float: right;
+}
+
+.key-inputs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.key-input {
+    width: 40%;
+    margin: 2% 2% 0 2%;
+    margin-top: -25px;
+    padding: 3%;
+    border: none;
+    color: dimgray;
+    border-radius: 10px;
+    height: 14em;
+    text-indent: inherit;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+}
+
+
+#loader {
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #441F90;
+    width: 80px;
+    height: 80px;
+    animation: spin 1s linear infinite;
+
+}
+
+#loader-div {
+    display: none;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+#username {
+    border: none;
+    border-radius: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 38%;
+    padding: 0 20px;
+    color: dimgray;
+    float: left;
+    height: 45px;
+}
+
+#username-button {
+    background-color: #441F90;
+    border: none;
+    border-radius: 8px;
+    width: 45%;
+    font-family: jost;
+    color: white;
+    font-size: 18px;
+    box-shadow: 1px 3px rgba(30, 32, 75, 0.5);
+    float: right;
+    height: 45px;
+}
+
+#username-button:hover,
+.enc-dec-button:hover {
+    background: linear-gradient(90deg, rgb(68, 31, 144) 0%, rgba(39, 150, 229, 0.8) 100%);
+}
+
+#username-button:active,
+.enc-dec-button:active {
+    background: linear-gradient(90deg, rgba(68, 31, 144, 0.8) 0%, rgba(39, 150, 229, 0.8) 100%);
+    box-shadow: 1px 2px rgba(50, 25, 101, 0.63);
+    transform: translateY(3px);
+}
+
+.blur-user-block {
+    background: rgb(255, 254, 254);
+    box-shadow: inset 0 3px 7px rgba(0, 0, 0, .3), 0 3px 7px rgba(0, 0, 0, .5);
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    border-radius: 12px;
+    /*border: 1px solid rgba(255, 255, 255, .5);*/
+    /*border-right: 1px solid rgba(178, 176, 176, 0.2);*/
+    /*border-bottom: 1px solid rgba(129, 128, 128, 0.2);*/
+    backdrop-filter: blur(15px);
+
+    margin-right: 2%;
+    padding: 0.5% 2%;
+    align-items: center;
+}
+
+#username-id {
+    color: #10234D;
+    margin: 0;
+    font-family: jost bold;
+}
+
+#user-icon {
+    height: 17px;
+    margin-right: 17px;
+}
+
+#blur-user-div {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}

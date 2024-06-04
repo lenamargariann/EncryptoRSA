@@ -1,0 +1,119 @@
+body {
+    background-image: url(../images/background.jpg);
+    background-size: cover;
+}
+
+@font-face {
+    font-family: jost;
+    src: url(Jost/static/Jost-Light.ttf);
+}
+
+@font-face {
+    font-family: jost bold;
+    src: url(Jost/static/Jost-Bold.ttf);
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#all {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+.blur-block {
+    background: rgba(255, 255, 255, .1);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, .2);
+    border-radius: 30px;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-right: 2px solid rgba(255, 255, 255, .2);
+    border-bottom: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(5px);
+    padding: 2.4%;
+}
+.username-block {
+    margin: 13% 12% 0 27%;
+    width: 38%;
+    
+}
+
+#loader {
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #996be3;
+    width: 80px;
+    height: 80px;
+    animation: spin 1s linear infinite;
+
+}
+
+#loader-div {
+    display: none;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+#username{
+    border: none;
+    border-radius: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 38%;
+    padding: 0 20px;
+    color: dimgray;
+    float: left;
+    height: 45px;
+}
+
+h1{
+    text-align: center;
+    font-family: jost bold;
+    margin: 0;
+    margin-bottom: 20px;
+    color: white;
+    text-shadow: 0 3px rgb(32, 111, 166);
+    text-transform: uppercase   ;
+
+}
+
+#submit-button {
+    background: linear-gradient(90deg, rgb(68, 31, 144) 0%, rgb(32, 111, 166) 100%);
+    border: none;
+    border-radius: 8px;
+    width: 45%;
+    font-family: jost;
+    color: white;
+    font-size: 18px;
+    box-shadow: 1px 2px rgba(50, 25, 101, 0.63);
+    float: right;
+    height: 45px;
+}
+
+#submit-button:hover{
+    background: rgba(68, 31, 144, 0.9);
+
+}
+
+#submit-button:active {
+    background: rgba(68, 31, 144, 0.9);
+    box-shadow: 0 0px #AEA8E4;
+    transform: translateY(3px);
+}
